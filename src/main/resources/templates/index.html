@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web Scraper</title>
+</head>
+<body>
+    <h1>Web Scraper</h1>
+    <form method="get" action="/scrape">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url">
+        <button type="submit">Scrape</button>
+    </form>
+    <ul>
+        <li th:each="guide : ${data}">
+            <p><strong>State:</strong> <span th:text="${guide.state}"></span></p>
+            <p><strong>Location:</strong> <span th:text="${guide.location}"></span></p>
+            <p><strong>Name:</strong> <span th:text="${guide.name}"></span></p>
+            <p><strong>Captain:</strong> <span th:text="${guide.captain}"></span></p>
+            <p><strong>Phone:</strong> <span th:text="${guide.phone}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${guide.email}"></span></p>
+            <p><strong>Website:</strong> <a th:href="${guide.website}" th:text="${guide.website}"></a></p>
+            <p><strong>Facebook:</strong> <a th:href="${guide.facebook}" th:text="${guide.facebook}"></a></p>
+            <p><strong>Profile URL:</strong> <a th:href="${guide.profileUrl}" th:text="${guide.profileUrl}"></a></p>
+            <hr/>
+        </li>
+    </ul>
+</body>
+</html>
